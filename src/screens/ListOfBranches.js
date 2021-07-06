@@ -8,7 +8,7 @@ const ListOfBranches =()=> {
     useEffect(() => {
         async function fetchData() {
           const data = await fetch(
-            "http://localhost:8082/findPincode/"+pincode,
+            "https://scavengerhunt-backend.herokuapp.com/findPincode/"+pincode,
             {
               mode: "cors",
               headers: {
@@ -23,8 +23,18 @@ const ListOfBranches =()=> {
         fetchData();
       }, [pincode]); 
       return (
-        <div>
-            <h1>List Of Serving Branches</h1>
+        <div style={
+            {
+                paddingLeft: "28rem"
+            }
+        }>
+            <h1 style={
+                {
+                    marginTop: "2rem",
+                    marginBottom: "1rem",
+                    marginLeft: "2rem"
+                }
+            }>List Of Serving Branches</h1>
            {
               
                data.length !=0 ? data.map(d=>{

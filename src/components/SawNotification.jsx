@@ -6,7 +6,7 @@ class SawNotification extends Component {
     constructor(){
         super();
         this.state = {message: ""  }
-        const socket = openSocket('http://localhost:8082');
+        const socket = openSocket('https://scavengerhunt-backend.herokuapp.com');
         socket.on('message', function(msg) {
             console.log(msg);
            this.setState({message: msg});
@@ -22,7 +22,10 @@ class SawNotification extends Component {
         }
         return (<div>
             <div>
-                <h3 onClick={logout}>Logout</h3>
+                <button type="submit" className="btn btn-dark btn-lg btn-block mr-10" onClick={logout} style={{
+                    marginLeft: '90rem',
+                    marginTop: '3rem'
+                }}>Logout</button>
             </div>
             {this.state.message}
             

@@ -8,7 +8,7 @@ const Admin =()=> {
     useEffect(() => {
         async function fetchData() {
           const data = await fetch(
-            "http://localhost:8082/findAllBranches",
+            "https://scavengerhunt-backend.herokuapp.com/findAllBranches",
             {
               mode: "cors",
               headers: {
@@ -23,8 +23,18 @@ const Admin =()=> {
         fetchData();
       }, []); 
       return (
-        <div>
-            <h1>List Of All Branches</h1>
+        <div style={
+            {
+                paddingLeft: "28rem"
+            }
+        }>
+            <h1 style={
+                {
+                    marginTop: "2rem",
+                    marginBottom: "1rem",
+                    marginLeft: "2rem"
+                }
+            }>List Of Allow Branches</h1>
            {
                data.map(d=>{
                 return(   <div>

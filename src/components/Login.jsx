@@ -8,7 +8,7 @@ export default class Login extends Component {
         branchName : "",
         password : ""
     }
-    socket = openSocket('http://localhost:8082');
+    socket = openSocket('https://scavengerhunt-backend.herokuapp.com');
     branchNameChange= (event) =>{
         this.setState({branchName: event.target.value});
     }
@@ -25,7 +25,7 @@ export default class Login extends Component {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username: this.state.branchName,password:this.state.password })
         };
-        const response = await fetch('http://localhost:8082/login', requestOptions);
+        const response = await fetch('https://scavengerhunt-backend.herokuapp.com/login', requestOptions);
         const data = await response.json();
         if(data.status==true){
             localStorage.setItem('username', data.data.branchName);
@@ -40,22 +40,31 @@ export default class Login extends Component {
     }
     render() {
         return (
-            <form>
+            <form style={{
+                width: "800px",
+                height: "300px",
+                margin: 300,
+                paddingLeft: 100
+                
+              }}>
 
                 <h3>Log in</h3>
+
 
                 <div className="form-group">
                     <label>Branch Name</label>
                     <input type="text" className="form-control" placeholder="Branch Name" value={this.state.branchName} onChange={this.branchNameChange}/>
-                </div>
+                 </div>
 
-                <div className="form-group">
+               <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" value={this.state.password} onChange={this.passwordChange}/>
-                </div>
+                     <input type="password" className="form-control" placeholder="Enter password" value={this.state.password} onChange={this.passwordChange}/>
+                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={this.validateUser}>Sign in</button>
+                 <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={this.validateUser} style={{                
+                margin: 30
+              }}>Sign in</button>
             </form>
-        );
+       );
     }
 }

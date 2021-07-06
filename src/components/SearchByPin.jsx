@@ -16,12 +16,21 @@ const SearchByPin = ()=>{
         history.push('/ListOfBranches/'+pincode)     
     }
     return (
-        <div>
+        <div style={{
+            width: "800px",
+            height: "300px",
+            margin: 300,    
+            paddingLeft: 100
+            
+          }}>
             <div className="form-group">
-                <label>Pincode</label>
+                <h2>Search By Pincode</h2>
                 <input type="text" className="form-control" placeholder="Pincode" value={pincode} onChange={pincodeChange}/>
             </div>
-            <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={sendMessage}>Search</button>
+            <button type="submit" className="btn btn-dark btn-lg btn-block" onClick={sendMessage} style={{
+                marginTop: 10
+                
+              }}>Search</button>
         </div>
     )
 }

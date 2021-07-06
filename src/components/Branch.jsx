@@ -7,7 +7,7 @@ class Branch extends Component {
             
             <div style={{
                 width: "800px",
-                height: "300px",
+                height: "350px",
                 margin: 0,
                 border: "1px solid black"
               }} className="container-fluid">
@@ -25,8 +25,8 @@ class Branch extends Component {
                   <h2>Contact Number :</h2> 
                   {
                       this.props.contactNumber.map(cn=>{
-                       return(<div className="col-md-3">{cn}
-                        </div>
+                       return(<h4 >{cn}
+                        </h4>
                       )
                       })
                   }               
